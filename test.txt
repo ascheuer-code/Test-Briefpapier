@@ -1,0 +1,16 @@
+
+                function onDrag({ movementX, movementY }) {
+                    let getStyle = window.getComputedStyle(container);
+                    let leftVal = parseInt(getStyle.left);
+                    let topVal = parseInt(getStyle.top);
+                    container.style.left = `${leftVal + movementX}px`;
+                    container.style.top = `${topVal + movementY}px`;
+                }
+                container.addEventListener("mousedown", () => {
+                    container.classList.add("active");
+                    container.addEventListener("mousemove", onDrag);
+                });
+                document.addEventListener("mouseup", () => {
+                    container.classList.remove("active");
+                    container.removeEventListener("mousemove", onDrag);
+                });
