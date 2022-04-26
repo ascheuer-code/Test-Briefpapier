@@ -15,12 +15,18 @@ function viewImage() {
 
                 container.setAttribute("class", "dragme")
 
+                var image = document.createElement("img")
+                image.setAttribute("src", e.target.result)
+                image.setAttribute('draggable', false);
+                container.appendChild(image)
+
                 //var content = '<img class="im" id="temp_image_' + count + '" style="border: 1px solid; " >';
 
                 //  container.innerHTML += content
                 document.querySelector('body').appendChild(container)
                 //document.querySelector('#temp_image_' + count).setAttribute('src', e.target.result);
-                container.style.backgroundImage = "url(" + e.target.result + ")"
+                // container.style.backgroundImage = "url(" + e.target.result + ")"
+
 
                 function onDrag({ movementX, movementY }) {
                     let getStyle = window.getComputedStyle(container);
@@ -33,11 +39,19 @@ function viewImage() {
                     if (document.getElementById("check").checked == true) {
                         container.classList.add("active");
                         container.addEventListener("mousemove", onDrag);
-                        console.log("left: " + container.getBoundingClientRect().x)
-                        console.log("top: " + container.getBoundingClientRect().y)
+
+                        console.log("X: " + container.getBoundingClientRect().x)
+                        console.log("Y: " + container.getBoundingClientRect().y)
 
                         console.log("width: " + container.getBoundingClientRect().width)
                         console.log("height: " + container.getBoundingClientRect().height)
+
+                        console.log("image X " + image.getBoundingClientRect().x)
+                        console.log("image Y: " + image.getBoundingClientRect().y)
+
+                        console.log("image width: " + image.getBoundingClientRect().width)
+                        console.log("image height: " + image.getBoundingClientRect().height)
+
 
                     }
                 });
