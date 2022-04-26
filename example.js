@@ -33,6 +33,12 @@ function viewImage() {
                     if (document.getElementById("check").checked == true) {
                         container.classList.add("active");
                         container.addEventListener("mousemove", onDrag);
+                        console.log("left: " + container.getBoundingClientRect().x)
+                        console.log("top: " + container.getBoundingClientRect().y)
+
+                        console.log("width: " + container.getBoundingClientRect().width)
+                        console.log("height: " + container.getBoundingClientRect().height)
+
                     }
                 });
 
