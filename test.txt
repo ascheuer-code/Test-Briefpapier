@@ -1,4 +1,5 @@
 
+
                 function onDrag({ movementX, movementY }) {
                     let getStyle = window.getComputedStyle(container);
                     let leftVal = parseInt(getStyle.left);
@@ -7,10 +8,29 @@
                     container.style.top = `${topVal + movementY}px`;
                 }
                 container.addEventListener("mousedown", () => {
-                    container.classList.add("active");
-                    container.addEventListener("mousemove", onDrag);
+                    if (document.getElementById("check").checked == false) {
+                        container.classList.add("active");
+                        container.addEventListener("mousemove", onDrag);
+                    }
                 });
+
+
                 document.addEventListener("mouseup", () => {
                     container.classList.remove("active");
                     container.removeEventListener("mousemove", onDrag);
                 });
+
+
+   var container = document.getElementById("page"),
+                context = container.getContext('2d')
+
+               make_base();
+
+               function make_base()
+               {
+                base_image = new Image(200,200)
+                base_image.src = e.target.result
+                base_image.onload = function(){
+                    context.drawImage(base_image, 200, 200);
+                  }
+               }
