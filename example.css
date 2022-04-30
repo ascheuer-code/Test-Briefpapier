@@ -22,7 +22,7 @@ body {
 
 #sidebar {
     display: grid;
-    grid-template-rows: 60% 20%;
+    grid-template-rows: auto 20%;
     background-color: #c6d72f;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-right: 0.5px inset rgba(0, 0, 0, 0.35);
@@ -45,6 +45,7 @@ body {
     border: 0.5px inset rgba(0, 0, 0, 0.35);
     aspect-ratio: 1 / 1.4142135623730950488016887242097;
     min-height: 100%;
+    width: auto;
 }
 
 .dragme {
