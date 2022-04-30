@@ -18,10 +18,13 @@ body {
 }
 
 #sidebar {
+    display: grid;
+    grid-template-rows: 60% 20%;
     background-color: #c6d72f;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-right: 0.5px inset rgba(0, 0, 0, 0.35);
     margin-left: 0px;
+
 }
 
 .input {
@@ -53,6 +56,9 @@ body {
     background-position: center;
 
     border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
 
     resize: both;
     overflow: hidden;
