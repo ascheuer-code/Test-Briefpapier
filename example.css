@@ -7,7 +7,7 @@ body {
 .grid-container {
     border: 0.5px inset rgba(0, 0, 0, 0.35);
     display: grid;
-    grid-template-columns: 20% auto;
+    grid-template-columns: 20% 80%;
     background-color: lightgrey;
     min-height: 100vh;
 
@@ -15,7 +15,7 @@ body {
 
 .grid-item {
     display: block;
-    padding: 20px;
+    padding: 10px;
     margin-left: auto;
     margin-right: auto;
 }
