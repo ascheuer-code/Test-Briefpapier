@@ -82,11 +82,16 @@ function viewImage() {
 
 
 function drawImage() {
-    var canvas = document.createElement("canvas")
+    let canvas = document.createElement("canvas")
+
     canvas.height = 1122;
     canvas.width = 793;
 
-    var context = canvas.getContext("2d")
+    let ratioX = canvas.width / page.getBoundingClientRect().width
+    let ratioY = canvas.height / page.getBoundingClientRect().height
+
+    console.log(ratioX, ratioY)
+    let context = canvas.getContext("2d")
 
     let imageList = document.getElementsByClassName("picture")
 
@@ -94,7 +99,7 @@ function drawImage() {
         let pic = new Image()
         pic.src = e.currentSrc
 
-        context.drawImage(pic, (e.x - page.getBoundingClientRect().x), (e.y - page.getBoundingClientRect().y), e.width, e.height)
+        context.drawImage(pic, ((e.x - page.getBoundingClientRect().x) * ratioX), ((e.y - page.getBoundingClientRect().y) * ratioY), e.width * ratioX, e.height * ratioY)
     });
 
     console.log(imageList)
