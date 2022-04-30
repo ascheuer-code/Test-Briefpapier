@@ -1,20 +1,42 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
 .grid-container {
+    border: 0.5px inset rgba(0, 0, 0, 0.35);
     display: grid;
-    grid-template-columns: 30% 70%;
-    min-height: 100%;
+    grid-template-columns: auto auto;
+    background-color: lightgrey;
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    display: block;
     padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center
+    margin-left: auto;
+    margin-right: auto;
 }
 
+#sidebar {
+    background-color: #c6d72f;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-right: 0.5px inset rgba(0, 0, 0, 0.35);
+    margin-left: 0px;
+}
+
+.input {
+    display: grid;
+    position: relative;
+    margin: auto;
+    top: 20px;
+}
+
+
+
 .page {
-    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
+    border: 0.5px inset rgba(0, 0, 0, 0.35);
     max-width: 793px;
     max-height: 1122px;
 

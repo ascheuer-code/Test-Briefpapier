@@ -11,9 +11,27 @@
 <body>
     <div class="grid-container">
         <div id="sidebar" class="grid-item">
+            <p>Adress Nr:</p>
+            <input type="text" name="" id="">
+            <button>Überprüfen</button>
+
+            <p>Kunde:</p>
+            <input type="text" name="Kunde" id="" readonly>
+
+            <div class="input">
+                <input id="image" name="image" type="file" multiple onChange="viewImage()">
+                <p><input type="checkbox" name="resize" id="check"> fix position </p>
+
+                <button onclick="drawImage()"> Draw Image </button>
+            </div>
+
 
         </div>
+
         <div id="right" class="grid-item">
+
+
+
             <div id="page" class="page">
 
             </div>
@@ -22,9 +40,7 @@
 
 
     </div>
-    <input id="image" name="image" type="file" multiple onChange="viewImage()">
-    <input type="checkbox" name="resize" id="check">
-    <button onclick="drawImage()"> Draw Image </button>
+
 </body>
 
 </html>
