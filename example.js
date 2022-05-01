@@ -33,13 +33,6 @@ function viewImage() {
                 //Container samt bild hinzufügen
                 document.getElementById("page").appendChild(container)
 
-                //Bild wird der imageListe hinzugefügt
-
-
-                //get src from imageList
-                //imageList.forEach(e => console.log(e.getAttribute("src")))
-
-
                 function removePicture() {
                     document.getElementById("page").removeChild(button.parentElement)
                 }
@@ -55,13 +48,6 @@ function viewImage() {
                     if (document.getElementById("check").checked == false) {
                         container.classList.add("active");
                         container.addEventListener("mousemove", onDrag);
-
-                        console.log("image height: " + image.getBoundingClientRect().height)
-                        console.log("image width: " + image.getBoundingClientRect().width)
-
-                        let page = document.getElementById("page")
-                        console.log("Offset X: " + (image.getBoundingClientRect().x - page.getBoundingClientRect().x))
-                        console.log("Offset Y: " + (image.getBoundingClientRect().y - page.getBoundingClientRect().y))
                     }
                 });
                 document.addEventListener("mouseup", () => {
