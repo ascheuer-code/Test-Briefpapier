@@ -64,9 +64,6 @@ function viewImage() {
 
     }
 }
-
-
-
 function drawImage() {
     let canvas = document.createElement("canvas")
 
@@ -76,7 +73,6 @@ function drawImage() {
     let ratioX = canvas.width / page.getBoundingClientRect().width
     let ratioY = canvas.height / page.getBoundingClientRect().height
 
-    console.log(ratioX, ratioY)
     let context = canvas.getContext("2d")
 
     let imageList = document.getElementsByClassName("picture")
@@ -87,22 +83,6 @@ function drawImage() {
 
         context.drawImage(pic, ((e.x - page.getBoundingClientRect().x) * ratioX), ((e.y - page.getBoundingClientRect().y) * ratioY), e.width * ratioX, e.height * ratioY)
     });
-
-    console.log(imageList)
-
-    //  Array.prototype.forEach.call(imageList, function (e) {
-
-    //      var image = document.createElement("img")
-    //      image.setAttribute("src", e.currentSrc)
-
-
-
-    //      console.log(image)
-    //      context.drawImage(image, 0, 0)
-
-    //      //context.drawImage(image, e.height, e.width, (e.x - page.getBoundingClientRect().x), (e.y - page.getBoundingClientRect.y));
-    //  });
-
 
     let wind = window.open();
 
