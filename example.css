@@ -10,7 +10,6 @@ body {
     grid-template-columns: 20% 80%;
     background-color: lightgrey;
     min-height: 100vh;
-
 }
 
 .grid-item {
@@ -27,6 +26,8 @@ body {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-right: 0.5px inset rgba(0, 0, 0, 0.35);
     margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 
 }
 
