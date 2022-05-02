@@ -74,7 +74,7 @@ function drawImage() {
 
     let ratioX = canvas.width / (page.getBoundingClientRect().right - page.getBoundingClientRect().left)
     //  let ratioX = canvas.width / page.getBoundingClientRect().width
-    let ratioY = canvas.height / page.getBoundingClientRect().height
+    let ratioY = canvas.height / (page.getBoundingClientRect().bottom - page.getBoundingClientRect().top)
 
     let context = canvas.getContext("2d")
 
