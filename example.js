@@ -48,6 +48,10 @@ function viewImage() {
                     if (document.getElementById("check").checked == false) {
                         container.classList.add("active");
                         container.addEventListener("mousemove", onDrag);
+
+
+                        console.log(image.x - page.getBoundingClientRect().left)
+                        console.log((image.y - 0.5) - page.getBoundingClientRect().top)
                     }
                 });
                 document.addEventListener("mouseup", () => {
@@ -68,7 +72,7 @@ function drawImage() {
     let canvas = document.createElement("canvas")
 
     canvas.width = 793;
-    canvas.height = (canvas.width * Math.sqrt(2))
+    canvas.height = (canvas.width * 1.4142135623730950488016887242097)
 
     let page = document.getElementById("page")
 
@@ -77,14 +81,13 @@ function drawImage() {
     let ratioY = canvas.height / (page.getBoundingClientRect().bottom - page.getBoundingClientRect().top)
 
     let context = canvas.getContext("2d")
-
-
     let imageList = document.getElementsByClassName("picture")
 
     Array.prototype.forEach.call(imageList, function (e) {
         let pic = new Image()
         pic.src = e.currentSrc
-        context.drawImage(pic, (e.x - (page.getBoundingClientRect().x) * ratioX), ((e.y - page.getBoundingClientRect().y) * ratioY), e.width * ratioX, e.height * ratioY)
+
+        context.drawImage(pic, (e.x - (page.getBoundingClientRect().left)) * ratioX, (e.y - (page.getBoundingClientRect().y)) * ratioY, e.width * ratioX, e.height * ratioY)
     });
 
     let wind = window.open();
