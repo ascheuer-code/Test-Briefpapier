@@ -67,27 +67,29 @@ function viewImage() {
 function drawImage() {
     let canvas = document.createElement("canvas")
 
-    canvas.height = 1122;
     canvas.width = 793;
+    canvas.height = (canvas.width * Math.sqrt(2))
 
-    let ratioX = canvas.width / page.getBoundingClientRect().width
+    let page = document.getElementById("page")
+
+    let ratioX = canvas.width / (page.getBoundingClientRect().right - page.getBoundingClientRect().left)
+    //  let ratioX = canvas.width / page.getBoundingClientRect().width
     let ratioY = canvas.height / page.getBoundingClientRect().height
 
     let context = canvas.getContext("2d")
+
 
     let imageList = document.getElementsByClassName("picture")
 
     Array.prototype.forEach.call(imageList, function (e) {
         let pic = new Image()
         pic.src = e.currentSrc
-
-        context.drawImage(pic, ((e.x - page.getBoundingClientRect().x) * ratioX), ((e.y - page.getBoundingClientRect().y) * ratioY), e.width * ratioX, e.height * ratioY)
+        context.drawImage(pic, (e.x - (page.getBoundingClientRect().x) * ratioX), ((e.y - page.getBoundingClientRect().y) * ratioY), e.width * ratioX, e.height * ratioY)
     });
 
     let wind = window.open();
 
-    wind.document.body.style.width = "1122";
-    wind.document.body.style.width = "793";
+
     wind.document.body.appendChild(canvas);
 
 
