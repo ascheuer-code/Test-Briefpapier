@@ -48,6 +48,10 @@ function viewImage() {
                     if (event.target.getBoundingClientRect().right - event.clientX > 80) {
                         container.classList.add("active");
                         container.addEventListener("mousemove", onDrag);
+
+
+                        console.log(image.x - page.getBoundingClientRect().left)
+                        console.log((image.y - 0.5) - page.getBoundingClientRect().top)
                     }
                 });
                 document.addEventListener("mouseup", () => {
@@ -73,27 +77,28 @@ function viewImage() {
 function drawImage() {
     let canvas = document.createElement("canvas")
 
-    canvas.height = 1122;
     canvas.width = 793;
+    canvas.height = (canvas.width * 1.4142135623730950488016887242097)
 
-    let ratioX = canvas.width / page.getBoundingClientRect().width
-    let ratioY = canvas.height / page.getBoundingClientRect().height
+    let page = document.getElementById("page")
+
+    let ratioX = canvas.width / (page.getBoundingClientRect().right - page.getBoundingClientRect().left)
+    //  let ratioX = canvas.width / page.getBoundingClientRect().width
+    let ratioY = canvas.height / (page.getBoundingClientRect().bottom - page.getBoundingClientRect().top)
 
     let context = canvas.getContext("2d")
-
     let imageList = document.getElementsByClassName("picture")
 
     Array.prototype.forEach.call(imageList, function (e) {
         let pic = new Image()
         pic.src = e.currentSrc
 
-        context.drawImage(pic, ((e.x - page.getBoundingClientRect().x) * ratioX), ((e.y - page.getBoundingClientRect().y) * ratioY), e.width * ratioX, e.height * ratioY)
+        context.drawImage(pic, (e.x - (page.getBoundingClientRect().left)) * ratioX, (e.y - (page.getBoundingClientRect().y)) * ratioY, e.width * ratioX, e.height * ratioY)
     });
 
     let wind = window.open();
 
-    wind.document.body.style.width = "1122";
-    wind.document.body.style.width = "793";
+
     wind.document.body.appendChild(canvas);
 
 
