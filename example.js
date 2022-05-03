@@ -45,7 +45,7 @@ function viewImage() {
                     container.style.top = `${topVal + movementY}px`;
                 }
                 container.addEventListener("mousedown", () => {
-                    if (document.getElementById("check").checked == false) {
+                    if (event.target.getBoundingClientRect().right - event.clientX > 80) {
                         container.classList.add("active");
                         container.addEventListener("mousemove", onDrag);
                     }
@@ -63,6 +63,12 @@ function viewImage() {
         count = 0;
 
     }
+    function resize() {
+        if (event.delta < 0) {
+            console.log("success")
+        }
+    }
+
 }
 function drawImage() {
     let canvas = document.createElement("canvas")
